@@ -18,7 +18,7 @@ Open HACK U Spring Osakaで開発するVR・AR同期プロダクト
     - 修正した内容
 - `test`
     - テストコードの追加や修正
-- 'delete'
+- `delete`
     - 削除した内容
     
 例：　　
