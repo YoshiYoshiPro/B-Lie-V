@@ -1,5 +1,10 @@
 # This .gitignore file should be placed at the root of your Unity project directory
 #
+
+# バックアップフォルダ
+test1658_BackUpThisFolder_ButDontShipItWithYourGame
+
+
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 [Ll]ibrary/
