@@ -11,7 +11,7 @@ public class Disappear : MonoBehaviour
 		// 衝突した相手にPlayerタグが付いているとき
 		if (collision.gameObject.tag == "Bottom")
 		{
-			// 0.2秒後に消える
+			// 0.01秒後に消える
 			Destroy(gameObject, 0.01f);
 		}
 	}
