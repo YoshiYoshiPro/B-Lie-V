@@ -13,6 +13,7 @@ public class NavigationUIController : MonoBehaviour
 
     private void Update() 
     {
+        //Aボタンを押したら目的地一覧を表示
         if(OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
         {
             canvasActive = !canvasActive;

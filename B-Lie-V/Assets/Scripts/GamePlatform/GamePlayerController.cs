@@ -5,7 +5,6 @@ using UnityEngine;
 public class GamePlayerController : MonoBehaviour
 {
     [SerializeField] private Transform startPoint;
-
     [SerializeField] private Rigidbody playerRigidbody;
     private float depthThreshold = 20.0f;
 
@@ -40,4 +39,5 @@ public class GamePlayerController : MonoBehaviour
         transform.position = startPoint.position;
         transform.rotation = Quaternion.identity;
     }
+
 }
