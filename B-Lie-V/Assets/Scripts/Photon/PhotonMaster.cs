@@ -5,24 +5,29 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
+
 public class PhotonMaster : MonoBehaviourPunCallbacks
 {
     public TextMeshPro statusText;
     private const int MaxPlayerPerRoom = 2;
 
+    private string playerName;
+    private string playerInfo;
+
     private void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
     }
+
     // Start is called before the first frame update
     private void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
     }
 
-    //これをボタンにつける
-    public void FindOponent()
+    public void FindOpponent(string info)
     {
+        playerInfo = info;
         if (PhotonNetwork.IsConnected)
         {
             PhotonNetwork.JoinRandomRoom();
@@ -52,24 +57,39 @@ public class PhotonMaster : MonoBehaviourPunCallbacks
         int playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
         if (playerCount != MaxPlayerPerRoom)
         {
-            statusText.text = "Wait Mathching";
+            statusText.text = "Wait Matching";
         }
         else
         {
-            statusText.text = "Sucsess Mathcing. Play Game";
+            statusText.text = "Success Matching. Play Game";
+            StartCoroutine(LoadGameScene());
         }
+    }
+
+    IEnumerator LoadGameScene()
+    {
+        // マッチングルームに参加したプレイヤーの情報をセット
+        ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable();
+        customProperties.Add("PlayerInfo", playerInfo);
+        Debug.Log(customProperties);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(customProperties);
+
+        // ルームが満員になったらバトルシーンに移動
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            statusText.text = "対戦相手が揃いました。バトルシーンに移動します。";
+            PhotonNetwork.LoadLevel("GamePlatform");
+        }
+
+        yield break;
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.CurrentRoom.PlayerCount == MaxPlayerPerRoom)
         {
-            if (PhotonNetwork.CurrentRoom.PlayerCount == MaxPlayerPerRoom)
-            {
-                PhotonNetwork.CurrentRoom.IsOpen = false;
-                statusText.text = "対戦相手が揃いました。バトルシーンに移動します。";
-                PhotonNetwork.LoadLevel("GameScene");
-            }
+            StartCoroutine(LoadGameScene());
         }
     }
 }

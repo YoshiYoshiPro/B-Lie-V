@@ -12,6 +12,7 @@ TagManager:
   - DownMapButton
   - Barrel
   - Controller
+  - GameMaster
   layers:
   - Default
   - TransparentFX
