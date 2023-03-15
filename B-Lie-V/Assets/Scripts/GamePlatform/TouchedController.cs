@@ -10,7 +10,7 @@ public class TouchedController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Controller"))
         {
-            gamePlayManager.PlayerTouchGameMaster();
+            gamePlayManager.PlayerVictory();
         }
     }
 }
