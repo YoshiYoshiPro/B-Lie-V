@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bottom
+  - Bullet
+  - LeftMapButton
+  - UpMapButton
+  - RightMapButton
+  - DownMapButton
+  - Barrel
+  - Controller
   layers:
   - Default
   - TransparentFX
@@ -11,10 +19,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - PlayerBarrier
+  - Barrel
+  - Player
   - 
   - 
   - 

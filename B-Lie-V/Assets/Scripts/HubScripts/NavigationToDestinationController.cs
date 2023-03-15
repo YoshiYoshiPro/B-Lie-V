@@ -7,7 +7,7 @@ public class NavigationToDestinationController : MonoBehaviour
 {
     public Transform destination_GFO;
 
-    [SerializeField] private GameObject targetBuilding;
+    [SerializeField] private GameObject[] targetBuildings = new GameObject[2];
     [SerializeField] private Material hightlightMaterial;
     [SerializeField] private Transform mainCamera;
     [SerializeField] private Transform cursor;
@@ -28,7 +28,8 @@ public class NavigationToDestinationController : MonoBehaviour
         navMeshAgent.SetDestination(destination_GFO.position);
         cursor.gameObject.SetActive(true);
         //向かう先の建物のマテリアルをハイライトさせる
-        targetBuilding.GetComponent<Renderer>().material = hightlightMaterial;
+        targetBuildings[0].GetComponent<Renderer>().material = hightlightMaterial;
+        targetBuildings[1].GetComponent<Renderer>().material = hightlightMaterial;
 
         StartCoroutine(NavigationToDestination());
     }
