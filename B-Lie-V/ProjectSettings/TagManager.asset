@@ -11,7 +11,7 @@ TagManager:
   - RightMapButton
   - DownMapButton
   - Barrel
-  - Ladder
+  - Controller
   layers:
   - Default
   - TransparentFX
@@ -20,9 +20,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
+  - PlayerBarrier
+  - Barrel
+  - Player
   - 
   - 
   - 

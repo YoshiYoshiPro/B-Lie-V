@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public class PlayerJumping : MonoBehaviour
 {
     [SerializeField, Tooltip("ジャンプの力")]
-    private float jumpForce = 10f;
+    private float jumpForce;
 
     [SerializeField, Tooltip("大ジャンプの力")]
-    private float greaterJumpForce = 17.0f;
+    private float greaterJumpForce;
 
     [SerializeField, Tooltip("接地判定用のレイヤーマスク")]
     private LayerMask groundMask;

@@ -12,7 +12,7 @@ public class LadderContorller : MonoBehaviour
     [SerializeField] private GameObject relayPoint;
 
     private Rigidbody playerRigidBody;
-    private float longPressTime = 0;
+    //private float longPressTime = 0;
     
     private void Start() 
     {
