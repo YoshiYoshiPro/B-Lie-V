@@ -5,13 +5,14 @@ using Photon.Pun;
 
 public class BarelGenerationController : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private GameObject barrelPrefab; 
+    public GameObject barrelPrefab; 
 
     private float barrelRadius = 0.01f;
 
     private float timeOut = 5.0f;
     private float timeElapsed;
 
+    public Transform SpawnPositon;
     private void Start() 
     {
         //StartCoroutine(GenerateBarrel());
@@ -20,31 +21,30 @@ public class BarelGenerationController : MonoBehaviourPunCallbacks
             return;
         }
 
-        photonView.RPC("SpawnBarrel", RpcTarget.All);
-        
+
     }
 
-    private void Update()
+    public void SpawnButton()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
 
-        timeElapsed += Time.deltaTime;
-
-        if (timeElapsed >= timeOut)
+        if (PhotonNetwork.IsMasterClient)
         {
-            RaycastHit hit;
-            //樽が下になかったら追加でスポーン
-            if (Physics.SphereCast(transform.position, barrelRadius, Vector3.down, out hit))
+            timeElapsed += Time.deltaTime;
+
+            if (timeElapsed >= timeOut)
             {
-                if (!hit.collider.transform.gameObject.CompareTag("Barrel"))
+                RaycastHit hit;
+                //樽が下になかったら追加でスポーン
+                if (Physics.SphereCast(transform.position, barrelRadius, Vector3.down, out hit))
                 {
-                    photonView.RPC("SpawnBarrel", RpcTarget.All);
+                    Debug.Log(hit.collider.transform.gameObject.name);
+                    if (!hit.collider.transform.gameObject.CompareTag("Barrel"))
+                    {
+                        SpawnBarrel();
+                    }
                 }
+                timeElapsed = 0.0f;
             }
-            timeElapsed = 0.0f;
         }
     }
     /// <summary>
@@ -69,10 +69,9 @@ public class BarelGenerationController : MonoBehaviourPunCallbacks
         }
     }*/
 
-    [PunRPC]
-    void SpawnBarrel()
+    public void SpawnBarrel()
     {
-        GameObject barrel = PhotonNetwork.Instantiate(barrelPrefab.name, transform.position, Quaternion.identity) as GameObject;
+        GameObject barrel = PhotonNetwork.Instantiate(barrelPrefab.name, SpawnPositon.position, Quaternion.identity) as GameObject;
         barrel.transform.localScale = new Vector3(105, 105, 105);
     }
 }
