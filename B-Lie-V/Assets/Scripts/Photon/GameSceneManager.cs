@@ -63,9 +63,9 @@ public class GameSceneManager : MonoBehaviourPunCallbacks
 
             cameraRig.position = playerPositions[0].position;
 
-            Master.gameObject.AddComponent<BarelGenerationController>();
-            Master.gameObject.GetComponent<BarelGenerationController>().barrelPrefab = Barrel;
-            Master.gameObject.GetComponent<BarelGenerationController>().SpawnPositon = SpawnPosiiton;
+            //Master.gameObject.AddComponent<BarelGenerationController>();
+            //Master.gameObject.GetComponent<BarelGenerationController>().barrelPrefab = Barrel;
+            //Master.gameObject.GetComponent<BarelGenerationController>().SpawnPositon = SpawnPosiiton;
         }
         if (!PhotonNetwork.IsMasterClient)
         {

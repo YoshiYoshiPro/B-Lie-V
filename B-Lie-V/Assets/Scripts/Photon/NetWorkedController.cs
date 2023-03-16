@@ -10,7 +10,7 @@ public class NetWorkedController : MonoBehaviourPunCallbacks, IPunObservable
 {
     Transform cameraTransform;
 
-    public TextMeshProUGUI text;
+    //public TextMeshProUGUI text;
     [SerializeField] GameObject avater_Face;
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -41,7 +41,7 @@ public class NetWorkedController : MonoBehaviourPunCallbacks, IPunObservable
         if (photonView.IsMine)
         {
             avater_Face.transform.parent = cameraTransform;
-            text.text = avater_Face.name;
+            //text.text = avater_Face.name;
             avater_Face.transform.localPosition = Vector3.zero;
             avater_Face.transform.localRotation = Quaternion.identity;
         }
