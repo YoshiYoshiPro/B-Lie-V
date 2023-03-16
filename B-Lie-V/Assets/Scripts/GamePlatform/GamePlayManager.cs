@@ -10,6 +10,7 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI GMText;
     [SerializeField] private TextMeshProUGUI playerText;
     [SerializeField] private GameObject[] backHubButtonCanvases = new GameObject[2];
+    [SerializeField] private AudioClip gameEndBGM;
 
     private AudioSource audioSource;
 
@@ -24,6 +25,7 @@ public class GamePlayManager : MonoBehaviour
     {
         timer.GameEnd();
         BackHubButtonActive();
+        PlayGameEndMusic();
         GMText.text = "Player Wins!!";
         playerText.text = "Player Wins!!";
     }
@@ -32,6 +34,7 @@ public class GamePlayManager : MonoBehaviour
     {
         timer.GameEnd();
         BackHubButtonActive();
+        PlayGameEndMusic();
         GMText.text = "GameMaster Wins!!";
         playerText.text = "GameMaster Wins!!";
     }
@@ -42,5 +45,12 @@ public class GamePlayManager : MonoBehaviour
         {
             button.SetActive(true);
         }
+    }
+
+    private void PlayGameEndMusic()
+    {
+        audioSource.Stop();
+        audioSource.clip = gameEndBGM;
+        audioSource.Play();
     }
 }
