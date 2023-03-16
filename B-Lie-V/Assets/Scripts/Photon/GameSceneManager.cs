@@ -19,6 +19,11 @@ public class GameSceneManager : MonoBehaviourPunCallbacks
     [SerializeField] private Transform PlayerTransform;
     [SerializeField] private GameObject MasterController;
 
+    [SerializeField] private Transform SpawnPosiiton;
+    [SerializeField] private GameObject Barrel;
+
+    
+
     private string testInfo;
     private void Start()
     {
@@ -57,6 +62,10 @@ public class GameSceneManager : MonoBehaviourPunCallbacks
             //Debug.Log("Test Info :" + testInfo);
 
             cameraRig.position = playerPositions[0].position;
+
+            Master.gameObject.AddComponent<BarelGenerationController>();
+            Master.gameObject.GetComponent<BarelGenerationController>().barrelPrefab = Barrel;
+            Master.gameObject.GetComponent<BarelGenerationController>().SpawnPositon = SpawnPosiiton;
         }
         if (!PhotonNetwork.IsMasterClient)
         {
