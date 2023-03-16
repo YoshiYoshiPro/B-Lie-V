@@ -9,7 +9,7 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField] private Timer timer;
     [SerializeField] private TextMeshProUGUI GMText;
     [SerializeField] private TextMeshProUGUI playerText;
-    [SerializeField] private GameObject backHubButton;
+    [SerializeField] private GameObject[] backHubButtonCanvases = new GameObject[2];
 
     private AudioSource audioSource;
 
@@ -38,6 +38,9 @@ public class GamePlayManager : MonoBehaviour
 
     private void BackHubButtonActive()
     {
-        backHubButton.SetActive(true);
+        foreach(GameObject button in backHubButtonCanvases)
+        {
+            button.SetActive(true);
+        }
     }
 }
