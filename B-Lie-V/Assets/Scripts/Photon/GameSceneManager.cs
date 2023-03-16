@@ -44,7 +44,8 @@ public class GameSceneManager : MonoBehaviourPunCallbacks
         {
             MasterController.GetComponent<GamePlayerController>().enabled = false;
             MasterController.GetComponent<PlayerJumping>().enabled = false;
-            var MasterLayer = MasterController.tag = "GameMaster";
+            MasterController.tag = "GameMaster";
+            MasterController.layer = 0;
             var v = MasterTransform.position;
             Debug.Log("Master");
             //playerName = PhotonNetwork.NickName;
