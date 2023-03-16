@@ -6,6 +6,8 @@ public class StartGameUICanvas : MonoBehaviour
 {
     [SerializeField] private GameObject confirmationPlate;
     [SerializeField] private GameObject choiceRolePlate;
+    [SerializeField] private GameObject YesButton;
+    [SerializeField] private GameObject NoButton;
 
     public void IsCanvasActive(bool isActive)
     {
@@ -14,8 +16,9 @@ public class StartGameUICanvas : MonoBehaviour
 
     public void OnYesButton()
     {
-        confirmationPlate.SetActive(false);
-        choiceRolePlate.SetActive(true);
+        //confirmationPlate.SetActive(false);
+        YesButton.SetActive(false);
+        NoButton.SetActive(false);
     }
 
     public void OnNoButton()

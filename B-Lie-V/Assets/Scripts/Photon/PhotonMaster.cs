@@ -8,7 +8,7 @@ using TMPro;
 
 public class PhotonMaster : MonoBehaviourPunCallbacks
 {
-    public TextMeshPro statusText;
+    public TextMeshProUGUI statusText;
     private const int MaxPlayerPerRoom = 2;
 
     private string playerName;
