@@ -60,6 +60,8 @@ public class GameSceneManager : MonoBehaviourPunCallbacks
         }
         if (!PhotonNetwork.IsMasterClient)
         {
+            MasterController.tag = "Player";
+            MasterController.layer = 9;
             var v = PlayerTransform.position;
             Debug.Log("Player");
             Player = PhotonNetwork.Instantiate("NetworkedController", v, Quaternion.identity);

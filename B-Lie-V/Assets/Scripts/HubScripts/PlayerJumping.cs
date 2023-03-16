@@ -41,8 +41,8 @@ public class PlayerJumping : MonoBehaviour
         //ゲームプレイ中は大ジャンプを可能にする
         if(SceneManager.GetActiveScene().name == "GamePlatform" && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.LTouch))
         {
-            //グリップボタン + Xボタンで大ジャンプ
-            if(OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.LTouch) && CanJump())
+            //グリップボタン + Yボタンで大ジャンプ
+            if(OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.LTouch) && CanJump())
             {
                 playerRigidbody.AddForce(Vector3.up * greaterJumpForce, ForceMode.Impulse);
             }
