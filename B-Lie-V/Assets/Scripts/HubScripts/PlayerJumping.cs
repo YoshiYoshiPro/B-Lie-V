@@ -31,8 +31,8 @@ public class PlayerJumping : MonoBehaviour
 
     void Update()
     {
-        // Xボタンが押され、ジャンプ可能な場合、ジャンプする
-        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.LTouch) && CanJump())
+        // Yボタンが押され、ジャンプ可能な場合、ジャンプする
+        if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.LTouch) && CanJump())
         {
             // 上方向に力を加えてジャンプさせる
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

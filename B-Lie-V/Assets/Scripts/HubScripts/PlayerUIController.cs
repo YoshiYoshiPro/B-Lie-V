@@ -18,8 +18,8 @@ public class PlayerUIController : MonoBehaviour
 
     private void Update() 
     {
-        //マップなどのメニューバーの表示・非表示をする。(Yボタン)
-        if(OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.LTouch))
+        //マップなどのメニューバーの表示・非表示をする。(Bボタン)
+        if(OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
         {
             canvasActive = !canvasActive;
             canvas.SetActive(canvasActive);
