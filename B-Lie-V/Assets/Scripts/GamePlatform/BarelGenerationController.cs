@@ -72,7 +72,7 @@ public class BarelGenerationController : MonoBehaviourPunCallbacks
     [PunRPC]
     void SpawnBarrel()
     {
-        GameObject barrel = Instantiate(barrelPrefab, transform.position, Quaternion.identity) as GameObject;
+        GameObject barrel = PhotonNetwork.Instantiate(barrelPrefab.name, transform.position, Quaternion.identity) as GameObject;
         barrel.transform.localScale = new Vector3(105, 105, 105);
     }
 }

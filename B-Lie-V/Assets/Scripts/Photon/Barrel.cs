@@ -5,23 +5,21 @@ using Photon.Pun;
 
 public class Barrel : MonoBehaviourPunCallbacks, IPunObservable
 {
-
-    private Vector3 networkPosition;
-    private Quaternion networkRotation;
-
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(transform.position);
-            Debug.Log("stream send : " + transform.position);
-            stream.SendNext(transform.rotation);
+            // Transformの値をストリームに書き込んで送信する
+            stream.SendNext(transform.localPosition);
+            stream.SendNext(transform.localRotation);
+            stream.SendNext(transform.localScale);
         }
         else
         {
-            networkPosition = (Vector3)stream.ReceiveNext();
-            networkRotation = (Quaternion)stream.ReceiveNext();
-            Debug.Log("Receive : " + transform.position);
+            // 受信したストリームを読み込んでTransformの値を更新する
+            transform.localPosition = (Vector3)stream.ReceiveNext();
+            transform.localRotation = (Quaternion)stream.ReceiveNext();
+            transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
 }
