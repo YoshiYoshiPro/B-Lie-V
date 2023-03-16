@@ -10,10 +10,14 @@ public class GamePlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) 
     {
-        if(other.gameObject.CompareTag("Barrel"))
+        if(gameObject.tag != "GameMaster")
         {
-            BackToStartPoint();
+            if (other.gameObject.CompareTag("Barrel"))
+            {
+                BackToStartPoint();
+            }
         }
+
     }
 
     private void LateUpdate() 
