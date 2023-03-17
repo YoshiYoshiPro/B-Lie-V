@@ -22,8 +22,11 @@ public class LeftHandPUN : MonoBehaviour
         p_AnimatorView = GetComponent<PhotonAnimatorView>();
         // Transformの同期方法を指定する
         p_TransformView = GetComponent<PhotonTransformView>();
-
-        LeftIKTarget = GameObject.Find("MRTK XR Rig/Camera Offset/MRTK LeftHand Controller").transform;
+        if (photonView.IsMine)
+        {
+            LeftIKTarget = GameObject.Find("MRTK XR Rig/Camera Offset/MRTK LeftHand Controller/LeftHand").transform;
+        }
+        
     }
 
     // IPunObservableインターフェースを実装して、同期する情報を指定する

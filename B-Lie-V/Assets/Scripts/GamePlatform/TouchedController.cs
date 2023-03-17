@@ -6,9 +6,9 @@ public class TouchedController : MonoBehaviour
 {
     [SerializeField] private GamePlayManager gamePlayManager;
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnCollisitonEnter(Collision other) 
     {
-        if(other.gameObject.CompareTag("Controller"))
+        if(other.gameObject.CompareTag("Player"))
         {
             gamePlayManager.PlayerVictory();
         }
