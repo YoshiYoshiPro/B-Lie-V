@@ -36,8 +36,7 @@ public class NavigationToDestinationController : MonoBehaviour
         targetBuildings[1].GetComponent<Renderer>().material = hightlightMaterial;
         //NPCを動かす
         defenceTarget.enabled = true;
-        defenceTarget.OnExitFollowTarget(player);
-
+        defenceTarget.StartAutoMovement();
         StartCoroutine(NavigationToDestination());
     }
 

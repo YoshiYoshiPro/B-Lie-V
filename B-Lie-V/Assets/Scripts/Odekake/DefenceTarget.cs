@@ -99,5 +99,10 @@ public class DefenceTarget : MonoBehaviour
         isArrival = true;
     }
 
+    public void StartAutoMovement()
+    {
+        isArrival = false;
+    }
+
 }
 
