@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.5386402, g: 0.29786092, b: 0.15636684, a: 1}
+  m_IndirectSpecularColor: {r: 0.5413692, g: 0.2971488, b: 0.15613002, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,6 +130,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261503795053926755, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.03432
+      objectReference: {fileID: 0}
+    - target: {fileID: 261503795053926755, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0264
+      objectReference: {fileID: 0}
+    - target: {fileID: 261503795053926755, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0075
+      objectReference: {fileID: 0}
+    - target: {fileID: 261503795053926755, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 261503795053926755, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 261503795053926755, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 261503795053926755, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 261503795053926755, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 293892221323633577, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -162,21 +194,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1147649740051854654, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
+      propertyPath: m_text
+      value: Spawn Barrel
+      objectReference: {fileID: 0}
     - target: {fileID: 1147649741191946799, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1147649741191946799, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1147649741191946799, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1147649741191946799, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1147649741191946799, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -184,11 +220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1147649741191946799, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 92.449
+      value: 91.041
       objectReference: {fileID: 0}
     - target: {fileID: 1147649741191946799, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.18
+      value: -1.584
       objectReference: {fileID: 0}
     - target: {fileID: 1147649741191946799, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -222,6 +258,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7941117382248455476, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c62fee6fc0b36546a0dd0dfa8e9d55a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb45df82ba657a845aea1b5aa230164f, type: 3}
 --- !u!1 &5442489 stripped
@@ -1018,7 +1058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc113b4be1ab5427e84557a4f510b70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minute: 2
+  minute: 3
   seconds: 0
   timerTexts:
   - {fileID: 1142838183}

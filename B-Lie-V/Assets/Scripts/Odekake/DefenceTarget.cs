@@ -11,15 +11,17 @@ public class DefenceTarget : MonoBehaviour
     }
 
 
-    public float move_speed = 3f;
+    public float move_speed;
 
     protected Rigidbody rb;
     protected Transform followTarget;
     public GameObject centerPos;
     protected MoveMode currentMoveMode;
-    public Transform SphereSub;
+    public Transform avatorTargetPos;
 
     [SerializeField] private Animator animator;
+
+    private bool isArrival = false;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class DefenceTarget : MonoBehaviour
 
     void Update()
     {
+        if(isArrival) currentMoveMode = MoveMode.Idle;
         DoAutoMovement();
     }
 
@@ -41,18 +44,28 @@ public class DefenceTarget : MonoBehaviour
                 //Debug.Log("11111111111");
                 break;
             case MoveMode.Follow:
-                if (Vector3.Distance(SphereSub.position, centerPos.transform.position) <= 0.2) {
+                if (Vector3.Distance(avatorTargetPos.position, centerPos.transform.position) <= 0.2) {
                     rb.velocity = new Vector3(0, 0, 0);
                     animator.SetTrigger("Idle");
                     //Debug.Log("22222222222");
 
                     break;
                 }
+
                 if (followTarget != null) {
-                    Quaternion move_rotation = Quaternion.LookRotation(SphereSub.position - centerPos.transform.position, Vector3.up);
+                    Quaternion move_rotation = Quaternion.LookRotation(avatorTargetPos.position - centerPos.transform.position, Vector3.up);
                     transform.rotation = Quaternion.Lerp(transform.rotation, move_rotation, 0.1f);
                     transform.rotation = new Quaternion(0, transform.rotation.y,0, transform.rotation.w);
-                    rb.velocity = transform.forward * move_speed;
+
+                    if (Vector3.Distance(avatorTargetPos.position, centerPos.transform.position) <= 0.5)
+                    {
+                        rb.velocity = transform.forward * (move_speed - 0.3f);
+                    }
+                    else
+                    {
+                        rb.velocity = transform.forward * move_speed;
+                    }
+                    
                     animator.SetTrigger("Move");
                     //Debug.Log("33333333333333");
 
@@ -79,6 +92,11 @@ public class DefenceTarget : MonoBehaviour
             currentMoveMode = MoveMode.Follow;
         }
     
+    }
+
+    public void ArriveDestinaiton()
+    {
+        isArrival = true;
     }
 
 }
