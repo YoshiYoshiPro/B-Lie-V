@@ -35,6 +35,8 @@ namespace Photon.Pun
             Int = 3,
             Bool = 4,
             Trigger = 9,
+            Vector3 = 10,
+            Quaternion = 11,
         }
 
 
