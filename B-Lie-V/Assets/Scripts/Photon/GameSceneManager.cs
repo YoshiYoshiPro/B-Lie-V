@@ -54,6 +54,7 @@ public class GameSceneManager : MonoBehaviourPunCallbacks
         {
             MasterController.GetComponent<GamePlayerController>().enabled = false;
             MasterController.GetComponent<PlayerJumping>().enabled = false;
+            
             MasterController.tag = "GameMaster";
             MasterController.layer = 0;
             var v = MasterTransform.position;
@@ -79,6 +80,7 @@ public class GameSceneManager : MonoBehaviourPunCallbacks
         {
             MasterController.tag = "Player";
             MasterController.layer = 9;
+            MasterController.GetComponent<TouchedController>().enabled = false;
             var v = PlayerTransform.position;
             Debug.Log("Player");
             Player = PhotonNetwork.Instantiate("NetworkedController", v, Quaternion.identity);

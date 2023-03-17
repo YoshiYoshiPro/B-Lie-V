@@ -23,7 +23,7 @@ public class RightHandPUN : MonoBehaviour
         // Transformの同期方法を指定する
         p_TransformView = GetComponent<PhotonTransformView>();
 
-        RightIKTarget = GameObject.Find("MRTK XR Rig/Camera Offset/MRTK RightHand Controller").transform;
+        RightIKTarget = GameObject.Find("MRTK XR Rig/Camera Offset/MRTK RightHand Controller/RightHand").transform;
     }
 
     // IPunObservableインターフェースを実装して、同期する情報を指定する
