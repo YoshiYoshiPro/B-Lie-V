@@ -12,6 +12,8 @@ public class NetWorkedController : MonoBehaviourPunCallbacks, IPunObservable
 
     //public TextMeshProUGUI text;
     [SerializeField] GameObject avater_Face;
+    [SerializeField] GameObject avater_RightHand;
+    private Transform rightHandTransform;
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -37,13 +39,18 @@ public class NetWorkedController : MonoBehaviourPunCallbacks, IPunObservable
     {
         //cameraTransform = GameObject.Find("Player/MRTK XR Rig/Camera Offset").transform;
         cameraTransform = Camera.main.GetComponent<Transform>();
-
+        rightHandTransform = GameObject.Find("Player/MRTK XR Rig/Camera Offset/MRTK RightHand Controller").transform;
         if (photonView.IsMine)
         {
             avater_Face.transform.parent = cameraTransform;
             //text.text = avater_Face.name;
             avater_Face.transform.localPosition = Vector3.zero;
             avater_Face.transform.localRotation = Quaternion.identity;
+            avater_RightHand.transform.parent = rightHandTransform;
+
+            avater_RightHand.transform.localPosition = Vector3.zero;
+            avater_RightHand.transform.localRotation = Quaternion.identity;
+
         }
     }
 }

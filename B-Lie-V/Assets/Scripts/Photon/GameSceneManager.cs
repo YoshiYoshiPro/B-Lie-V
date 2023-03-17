@@ -10,6 +10,11 @@ public class GameSceneManager : MonoBehaviourPunCallbacks
     private GameObject Master;
     private GameObject Player;
 
+    private GameObject RightHand;
+    private GameObject LeftHand;
+    [SerializeField] private GameObject RightHandPrefab;
+    [SerializeField] private GameObject LeftHandPrefab;
+
     private string playerName;
 
     [SerializeField] private Transform cameraRig;
@@ -66,6 +71,9 @@ public class GameSceneManager : MonoBehaviourPunCallbacks
             //Master.gameObject.AddComponent<BarelGenerationController>();
             //Master.gameObject.GetComponent<BarelGenerationController>().barrelPrefab = Barrel;
             //Master.gameObject.GetComponent<BarelGenerationController>().SpawnPositon = SpawnPosiiton;
+
+            RightHand = PhotonNetwork.Instantiate(RightHandPrefab.name, v, Quaternion.identity);
+            LeftHand = PhotonNetwork.Instantiate(LeftHandPrefab.name, v, Quaternion.identity);
         }
         if (!PhotonNetwork.IsMasterClient)
         {
@@ -75,7 +83,10 @@ public class GameSceneManager : MonoBehaviourPunCallbacks
             Debug.Log("Player");
             Player = PhotonNetwork.Instantiate("NetworkedController", v, Quaternion.identity);
             cameraRig.position = playerPositions[1].position;
-
+            RightHand = PhotonNetwork.Instantiate(RightHandPrefab.name, v, Quaternion.identity);
+            LeftHand = PhotonNetwork.Instantiate(LeftHandPrefab.name, v, Quaternion.identity);
         }
+
+       
     }
 }
